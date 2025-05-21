@@ -1,0 +1,10 @@
+@model toDo.Models.Todo
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Confirmar exclusão da tarefa <strong>@Model.Title</strong></p>
+
+<form method="POST">
+  <button class="btn btn-danger" type="submit">Delete</button>
+  <a asp-controller="Todo" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>
