@@ -43,7 +43,7 @@ Aplicação ASP.NET Core MVC para gerenciamento de tarefas (To-Do List).
 
 ## Pré-requisitos
 
-- .NET 7.0 SDK ou superior (https://dotnet.microsoft.com/download)
+- .NET 9.0 SDK ou superior (https://dotnet.microsoft.com/download)
 - SQLite (https://www.sqlite.org/index.html) (opcional, pois o EF Core cria o arquivo automaticamente)
 
 ## Observações
