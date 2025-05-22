@@ -32,9 +32,6 @@ Thumbs.db
 packages/
 .nuget/
 
-# Entity Framework Migrations
-Migrations/
-
 # SQLite database
 *.db
 *.sqlite

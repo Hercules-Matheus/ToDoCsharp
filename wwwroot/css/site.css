@@ -1,5 +1,6 @@
 html {
-  font-size: 14px;
+  font-size: 12px;
+  font-family: "Nunito", sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -8,24 +9,141 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
   position: relative;
   min-height: 100%;
+  background-image: url("/img/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #f9f9f9;
 }
 
 body {
-  margin-bottom: 60px;
+  margin: 0px;
+  background: transparent;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+.custom-card {
+  background: rgba(255, 255, 255, 0.102);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 #06616e5e;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px;
+}
+
+.table-responsive {
+  max-height: 535px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 100%;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #06616e #ffffff00; /* Firefox */
+  padding-right: 10px;
+}
+
+/* Webkit browsers */
+.table-responsive::-webkit-scrollbar {
+  height: 8px;
+  background: #ffffff00;
+}
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #06616e;
+  border-radius: 8px;
+}
+.table-responsive::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+.table {
+  margin-bottom: 0px;
+  border-collapse: separate;
+  border-spacing: 0 3px; /* 8px de espaço vertical entre as linhas */
+}
+
+.table tr,
+.table td,
+.table th {
+  border: none;
+}
+
+.table thead tr {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to right, #212121 0%, #383838 100%);
+}
+
+.table thead tr th {
+  background: transparent;
+  color: #f9f9f9;
+}
+
+tr.taskCompleted {
+  background: linear-gradient(to right, #06616e 0%, #0d9eb2 100%);
+}
+
+tr.taskNotCompleted {
+  background-color: #e8e8e8;
+}
+
+tr.taskCompleted td {
+  background: transparent;
+  color: #f9f9f9;
+}
+
+tr.taskNotCompleted td {
+  background: transparent;
+  color: #212121;
+}
+
+tr td:first-child,
+thead tr th:first-child {
+  border-radius: 16px 0 0 16px;
+}
+
+tr td:last-child,
+thead tr th:last-child {
+  border-radius: 0 16px 16px 0;
+}
+
+.btn-danger {
+  background-color: #c91f1f;
+}
+
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+@media screen and (max-width: 380px) {
+  .table-responsive {
+    max-height: 500px;
+  }
+}
+@media screen and (min-width: 381px) and (max-width: 550px) {
+  .table-responsive {
+    max-height: 600px;
+  }
+}
+@media screen and (min-width: 551px) and (max-width: 768px) {
+  .table-responsive {
+    max-height: 470px;
+  }
 }

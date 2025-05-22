@@ -1,77 +1,86 @@
 @model List<toDo.Models.Todo>
 
-<h1>@ViewData["Title"]</h1>
+@* <h1 style="width: 100%; "><img src="~/img/logo-horizontal.svg" alt="TaskFlow" style="height: 100px; margin-left: 20px;"></h1> *@
 
 @if (Model.Count > 0)
 {
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Task</th>
-        <th scope="col">Created at</th>
-        <th scope="col">Deadline</th>
-        <th scope="col">Completed on</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach (var todo in Model)
-      {
+  <div class="table-responsive overflow-auto">
+    <table class="table table-hover">
+      <thead>
         <tr>
-          <td>@todo.Id</td>
-          <td>@todo.Title</td>
-          <td>@todo.CreatedAt</td>
-          <td>@todo.Deadline</td>
-          <td>@(todo.CompletedAt.HasValue ? todo.CompletedAt : "-")</td>
-          <td>
-            <a 
-              asp-controller="Todo" 
-              asp-action="Edit" 
-              asp-route-id="@todo.Id" 
-              class="btn btn-warning btn-sm"
-            >
-              Edit
-            </a>
-            <a
-              asp-controller="Todo"
-              asp-action="Delete"
-              asp-route-id="@todo.Id" 
-              class="btn btn-danger btn-sm"
-            >
-              Delete
-            </a>
-            @if (todo.IsCompleted == true)
-            {
-              <a 
-                asp-controller="Todo" 
-                asp-action="Complete" 
-                asp-route-id="@todo.Id" 
-                class="btn btn-success btn-sm"
-              >
-                Done
-              </a>
-            }
-            else
-            {
-              <a 
-                asp-controller="Todo" 
-                asp-action="Complete" 
-                asp-route-id="@todo.Id" 
-                class="btn btn-secondary btn-sm"
-              >
-                Undone
-              </a>
-            }
-          </td>
+          <th scope="col">#</th>
+          <th scope="col">Task</th>
+          <th scope="col">Created</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Ended</th>
+          <th scope="col">Actions</th>
         </tr>
-      }
-    </tbody>
-  </table>
-
+      </thead>
+      <tbody>
+        @foreach (var todo in Model)
+        {
+          <tr class="@(todo.IsCompleted ? "taskCompleted" : "taskNotCompleted")">
+            <td>@todo.Id</td>
+            <td class="text-break text-wrap">@todo.Title</td>
+            <td class="text-break text-wrap">@todo.CreatedAt</td>
+            <td class="text-break text-wrap">@todo.Deadline?.ToString("dd/MM/yyyy")</td>
+            <td class="text-break text-wrap">@(todo.CompletedAt.HasValue ? todo.CompletedAt : "-")</td>
+            <td>
+              <a 
+                asp-controller="Todo" 
+                asp-action="Edit" 
+                asp-route-id="@todo.Id" 
+                class="btn btn-warning btn-sm @(todo.IsCompleted ? "disabled" : "")"
+                data-bs-toggle="tooltip"
+                title="Edit"
+              >
+                <i class="bi bi-pencil-fill" style="color: #212121;"></i>
+              </a>
+              <a
+                asp-controller="Todo"
+                asp-action="Delete"
+                asp-route-id="@todo.Id" 
+                class="btn btn-danger btn-sm"
+                data-bs-toggle="tooltip"
+                title="Delete"
+              >
+                <i class="bi bi-x" style="color: #f9f9f9;"></i>
+              </a>
+              @if (todo.IsCompleted == true)
+              {
+                <a 
+                  asp-controller="Todo" 
+                  asp-action="Complete" 
+                  asp-route-id="@todo.Id" 
+                  class="btn btn-success btn-sm"
+                  data-bs-toggle="tooltip"
+                  title="Click to reopen"
+                >
+                  <i class="bi bi-toggle-on" style="color: #f9f9f9;"></i>
+                </a>
+              }
+              else
+              {
+                <a 
+                  asp-controller="Todo" 
+                  asp-action="Complete" 
+                  asp-route-id="@todo.Id" 
+                  class="btn btn-secondary btn-sm"
+                  data-bs-toggle="tooltip"
+                  title="Click to complete"
+                >
+                  <i class="bi bi-toggle-off" style="color: #f9f9f9;"></i>
+                </a>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 }
 else
 {
   <p>No tasks available.</p>
 }
-<a asp-controller="Todo" asp-action="Create" class="btn btn-primary">New Task</a>
+<a asp-controller="Todo" asp-action="Create" class="btn btn-primary" style="margin-top: 20px;">New Task</a>
