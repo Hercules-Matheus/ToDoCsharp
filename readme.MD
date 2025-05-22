@@ -14,21 +14,22 @@ Aplicação ASP.NET Core MVC para gerenciamento de tarefas (To-Do List).
 ## Como rodar o projeto
 
 1. Clone o repositório:
-   git clone https://github.com/Hercules-Matheus/ToDoCsharp.git
+   git clone https://github.com/Hercules-Matheus/ToDoCsharp.git\\
+   e mude para a pasta do projeto:\\
    `cd ToDoCsharp`
 
-2. Restaure os pacotes:
+2. Restaure os pacotes:\\
    `dotnet restore`
 
-3. Aplique as migrations e crie o banco de dados:
+3. Aplique as migrations e crie o banco de dados:\\
    `dotnet ef database update`
 
-4. Rode a aplicação:
-   `dotnet run`
-   Ou, para desenvolvimento com hot reload:
+4. Rode a aplicação:\\
+   `dotnet run`\\
+   Para desenvolvimento com hot reload:\\
    `dotnet watch run`
 
-5. Acesse no navegador:
+5. Acesse no navegador:\\
    http://localhost:5218
    (ou a porta exibida no terminal)
 
