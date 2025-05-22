@@ -15,7 +15,7 @@ public class TodoController : Controller
 
   public IActionResult Index()
   {
-    ViewData["Title"] = "To-do List";
+    ViewData["Title"] = "TaskFlow";
     var todos = _context.Todos.ToList();
     return View(todos);
   }
@@ -35,7 +35,7 @@ public class TodoController : Controller
       _context.Todos.Add(todo);
       _context.SaveChanges();
       Console.WriteLine("on if ModelState.IsValid from Create Route/Action");
-      return RedirectToAction(nameof(Index));
+      return RedirectToAction("Index");
     }
     ViewData["Title"] = "Add New Task";
     return View("Form", todo);
@@ -59,7 +59,7 @@ public class TodoController : Controller
     { 
       _context.Todos.Update(todo);
       _context.SaveChanges();
-      return RedirectToAction(nameof(Index));
+      return RedirectToAction("Index");
     }
     ViewData["Title"] = "Edit Task";
     return View("Form", todo);
@@ -81,7 +81,7 @@ public class TodoController : Controller
   {
     _context.Todos.Remove(todo);
     _context.SaveChanges();
-    return RedirectToAction(nameof(Index));
+    return RedirectToAction("Index");
   }
 
   public IActionResult Complete(int id)
@@ -91,10 +91,9 @@ public class TodoController : Controller
     {
       return NotFound();
     }
-    todo.IsCompleted = !todo.IsCompleted;
-    todo.CompletedAt = todo.IsCompleted ? DateOnly.FromDateTime(DateTime.Now) : null;
+    todo.Complete();
     _context.Todos.Update(todo);
     _context.SaveChanges();
-    return RedirectToAction(nameof(Index));
+    return RedirectToAction("Index");
   }
 }

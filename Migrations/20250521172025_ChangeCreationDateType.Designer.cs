@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using toDo.Contexts;
 
@@ -10,9 +11,11 @@ using toDo.Contexts;
 namespace toDo.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    partial class ToDoContextModelSnapshot : ModelSnapshot
+    [Migration("20250521172025_ChangeCreationDateType")]
+    partial class ChangeCreationDateType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.5");
@@ -23,13 +26,13 @@ namespace toDo.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("CompletedAt")
+                    b.Property<DateOnly?>("CompletedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateOnly>("CreatedAt")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Deadline")
+                    b.Property<DateOnly>("Deadline")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsCompleted")
@@ -37,7 +40,7 @@ namespace toDo.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(60)
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

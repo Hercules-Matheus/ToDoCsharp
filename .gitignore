@@ -1,0 +1,50 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# ASP.NET Core secrets
+secrets.json
+
+# IIS Express
+.vs/
+*.vspscc
+*.vssscc
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# NuGet packages
+*.nupkg
+packages/
+.nuget/
+
+# SQLite database
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+
+# Publish output
+publish/
+wwwroot/lib/
+
+# Rider IDE
+.idea/
+
+# Test results
+TestResults/
