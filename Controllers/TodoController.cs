@@ -53,17 +53,31 @@ public class TodoController : Controller
   }
 
   [HttpPost]
-  public IActionResult Edit(Todo todo)
-  {
+[HttpPost]
+public IActionResult Edit(Todo todo)
+{
     if (ModelState.IsValid)
-    { 
-      _context.Todos.Update(todo);
-      _context.SaveChanges();
-      return RedirectToAction("Index");
+    {
+        var existingTodo = _context.Todos.Find(todo.Id);
+        if (existingTodo == null)
+        {
+            return NotFound();
+        }
+
+        // Atualiza apenas os campos que podem ser editados
+        existingTodo.Title = todo.Title;
+        existingTodo.Deadline = todo.Deadline;
+
+        _context.Todos.Update(existingTodo);
+        _context.SaveChanges();
+
+        return RedirectToAction("Index");
     }
+
     ViewData["Title"] = "Edit Task";
     return View("Form", todo);
-  }
+}
+
 
   public IActionResult Delete(int id)
   {
