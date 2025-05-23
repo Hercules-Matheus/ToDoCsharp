@@ -26,9 +26,9 @@ namespace toDo.Models
 
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
-      if (Deadline.HasValue && Deadline.Value < DateTime.Now)
+      if (Deadline.HasValue && Deadline.Value.Date < DateTime.Now.Date)
       {
-        yield return new ValidationResult("The Deadline date cannot be in the past.", [nameof(Deadline)]);
+        yield return new ValidationResult("The Deadline date cannot be in the past.", new[] { nameof(Deadline) });
       }
     }
 
