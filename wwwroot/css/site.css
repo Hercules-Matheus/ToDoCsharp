@@ -168,7 +168,7 @@ thead tr th:last-child {
 
 @media screen and (min-width: 322px) and (max-width: 380px) {
   .table-responsive {
-    height: 455px;
+    height: 385px;
     min-width: 200px;
   }
   .custom-card {
@@ -181,7 +181,7 @@ thead tr th:last-child {
 }
 @media screen and (min-width: 381px) and (max-width: 389px) {
   .table-responsive {
-    height: 590px;
+    height: 520px;
     min-width: 300px;
   }
   .custom-card {
@@ -195,7 +195,7 @@ thead tr th:last-child {
 }
 @media screen and (min-width: 390px) and (max-width: 420px) {
   .table-responsive {
-    height: 626px;
+    height: 556px;
     min-width: 300px;
   }
   .custom-card {
@@ -209,7 +209,7 @@ thead tr th:last-child {
 }
 @media screen and (min-width: 421px) and (max-width: 450px) {
   .table-responsive {
-    height: 646px;
+    height: 576px;
     min-width: 300px;
   }
   .custom-card {
@@ -223,7 +223,7 @@ thead tr th:last-child {
 }
 @media screen and (min-width: 451px) and (max-width: 660px) {
   .table-responsive {
-    height: 465px;
+    height: 395px;
     min-width: 300px;
   }
   .custom-card {
@@ -232,7 +232,7 @@ thead tr th:last-child {
 }
 @media screen and (min-width: 661px) and (max-width: 1012px) {
   .table-responsive {
-    height: 595px;
+    height: 525px;
     min-width: 300px;
   }
   .custom-card {
