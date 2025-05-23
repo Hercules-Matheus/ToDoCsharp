@@ -25,9 +25,9 @@ Aplicação ASP.NET Core MVC para gerenciamento de tarefas (To-Do List).
    `dotnet ef database update`
 
 4. **Rode a aplicação:**  
-   `dotnet run`  
+   `dotnet run --environment Development`  
    Para desenvolvimento com hot reload:  
-   `dotnet watch run`
+   `dotnet watch --environment Development`
 
 5. **Acesse no navegador:**  
    http://localhost:5218  
