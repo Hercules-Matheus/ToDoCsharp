@@ -1,0 +1,35 @@
+@using toDo.Models
+@model toDo.ViewModels.LoginViewModel
+
+<h1>@ViewData["Title"]</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="validation-summary-errors">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+<form asp-action="Login" method="post">
+    <div class="mb-3">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="RememberMe" class="form-check-input" type="checkbox" />
+        <label asp-for="RememberMe" class="form-check-label">Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <a asp-controller="Todo" asp-action="Register" class="btn btn-secondary">Register</a>
+</form>

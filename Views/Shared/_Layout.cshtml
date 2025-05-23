@@ -19,6 +19,13 @@
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Todo" asp-action="Index"><img src="~/img/logo-horizontal.svg" style="height: 50px;" alt="Taskflow logo"></a>
             </div>
+            @if (User.Identity != null && User.Identity.IsAuthenticated) {
+                <form asp-action="Logout" method="post" style="display: inline;">
+                    <button type="submit" style="margin-right: 20px; background: none; border: none;">
+                        <i class="bi bi-box-arrow-left" style="color: #C91F1F; font-size: 2rem;"></i>
+                    </button>
+                </form>
+            }
         </nav>
     </header>
     <div class="container">

@@ -9,13 +9,20 @@ namespace toDo.Models
     [StringLength(60, MinimumLength = 5, ErrorMessage = "The Title field should be at least 5 and a maximum of 100 characters long.")]
     [Required(ErrorMessage = "The Title field is obligatory.")]
     public string Title { get; set; } = string.Empty;
+
     public bool IsCompleted { get; set; }
+
     public DateTime CreatedAt { get; set; }
 
     [Required(ErrorMessage = "The Deadline date is invalid.")]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     public DateTime? Deadline { get; set; }
+
     public DateTime? CompletedAt { get; set; }
+
+    public ApplicationUser? User { get; set; }
+
+    public string UserId { get; set; } = string.Empty;
 
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
